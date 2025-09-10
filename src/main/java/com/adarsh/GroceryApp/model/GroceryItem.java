@@ -1,8 +1,8 @@
 package com.adarsh.GroceryApp.model;
 
-
+import org.springframework.data.annotation.Id;
 import com.adarsh.GroceryApp.service.GroceryService;
-import jakarta.persistence.*;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "grocery_items")
