@@ -44,4 +44,21 @@ public class GroceryController {
         return "Item deleted successfully!";
     }
 
+    @GetMapping("/filter")
+    public List<GroceryItem> filterItems(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) Double price,
+            @RequestParam(required = false) Integer quantity) {
+
+        if (name != null) {
+            return groceryService.filterByName(name);
+        } else if (price != null) {
+            return groceryService.filterByPrice(price);
+        } else if (quantity != null) {
+            return groceryService.filterByQuantity(quantity);
+        } else {
+            throw new RuntimeException("Please provide a filter parameter like name, price, or quantity");
+        }
+    }
+
 }

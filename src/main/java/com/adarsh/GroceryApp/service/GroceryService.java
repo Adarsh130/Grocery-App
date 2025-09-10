@@ -47,4 +47,19 @@ public class GroceryService {
         }
         groceryRepository.deleteById(id);
     }
+    //filter by name
+
+    public List<GroceryItem> filterByName(String name){
+        return groceryRepository.findByNameIgnoreCase((name));
+
+    }
+    //filter by price
+    public List<GroceryItem> filterByPrice(double price){
+        return groceryRepository.findByPriceLessThanEqual(price);
+    }
+    //filter by quantity
+    public List<GroceryItem> filterByQuantity(int quantity){
+        double price;
+        return groceryRepository.findByPriceLessThanEqual(quantity);
+    }
 }
