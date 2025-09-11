@@ -14,6 +14,7 @@ This is a simple CRUD API built with **Spring Boot** and **MongoDB** to manage g
 | name      | String  | Grocery item name |
 | price     | Double  | Price of the item |
 | quantity  | Integer | Available stock |
+| category  | String  | Grocery Category |
 
 ---
 
@@ -32,7 +33,8 @@ GET /api/grocery
     "id": "66dcdccff123",
     "name": "Rice",
     "price": 45.5,
-    "quantity": 10
+    "quantity": 10,
+    "category": "Grains"
   }
 ]
 ```
@@ -54,7 +56,8 @@ GET /api/grocery/66dcdccff123
   "id": "66dcdccff123",
   "name": "Rice",
   "price": 45.5,
-  "quantity": 10
+  "quantity": 10,
+  "category": "Grains"
 }
 ```
 
@@ -69,7 +72,8 @@ POST /api/grocery
 {
   "name": "Milk",
   "price": 30,
-  "quantity": 20
+  "quantity": 20,
+  "category": "Dairy Product"
 }
 ```
 
@@ -79,7 +83,8 @@ POST /api/grocery
   "id": "66dcdccff456",
   "name": "Milk",
   "price": 30,
-  "quantity": 20
+  "quantity": 20,
+  "category": "Grains"
 }
 ```
 
@@ -94,7 +99,8 @@ PUT /api/grocery/{id}
 {
   "name": "Milk Updated",
   "price": 32,
-  "quantity": 25
+  "quantity": 25,
+  "category": "Grains"
 }
 ```
 
@@ -109,7 +115,8 @@ PUT /api/grocery/66dcdccff456
   "id": "66dcdccff456",
   "name": "Milk Updated",
   "price": 32,
-  "quantity": 25
+  "quantity": 25,
+  "category": "Dairy"
 }
 ```
 
@@ -154,7 +161,8 @@ GET /api/grocery/filter?name=Rice&minPrice=20&maxPrice=50
     "id": "66dcdccff123",
     "name": "Rice",
     "price": 45.5,
-    "quantity": 10
+    "quantity": 10,
+    "category": "Grains"
   }
 ]
 ```
