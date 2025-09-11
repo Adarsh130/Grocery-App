@@ -14,12 +14,14 @@ public class GroceryItem {
     private String name;
     private double price;
     private int quantity;
+    public String category;
     public GroceryItem(){}
-    public GroceryItem(String id, String name, double price, int quantity) {
+    public GroceryItem(String id, String name, double price, int quantity,String category) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+        this.category= category;
     }
 
     public String getId() {
@@ -52,5 +54,12 @@ public class GroceryItem {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

@@ -20,4 +20,6 @@ public interface GroceryRepository extends MongoRepository<GroceryItem, String>{
     List<GroceryItem> findByPriceBetween(double minPrice, double maxPrice);
     //filter by quantity
     List<GroceryItem> findByQuantityGreaterThanEqual(int quantity);
+    //find by category
+    List<GroceryItem>  findByCategoryIgnoreCase(String category);
 }

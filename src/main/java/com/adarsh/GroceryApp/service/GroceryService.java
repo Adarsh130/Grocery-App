@@ -33,12 +33,25 @@ public class GroceryService {
     // Update existing item
     public GroceryItem updateItem(String id, GroceryItem updatedItem) {
         return groceryRepository.findById(id).map(existingItem -> {
-            existingItem.setName(updatedItem.getName());
-            existingItem.setPrice(updatedItem.getPrice());
-            existingItem.setQuantity(updatedItem.getQuantity());
-            return groceryRepository.save(existingItem); // Persist changes
+
+            // Update all fields including category
+            if (updatedItem.getName() != null) {
+                existingItem.setName(updatedItem.getName());
+            }
+            if (updatedItem.getPrice() != 0) {
+                existingItem.setPrice(updatedItem.getPrice());
+            }
+            if (updatedItem.getQuantity() != 0) {
+                existingItem.setQuantity(updatedItem.getQuantity());
+            }
+            if (updatedItem.getCategory() != null) {
+                existingItem.setCategory(updatedItem.getCategory()); // ✅ Update category
+            }
+
+            return groceryRepository.save(existingItem); // Persist changes to MongoDB
         }).orElseThrow(() -> new ResourceNotFoundException("Item not found with ID: " + id));
     }
+
 
     // Delete item by ID
     public void deleteItem(String id) {
@@ -61,5 +74,9 @@ public class GroceryService {
     public List<GroceryItem> filterByQuantity(int quantity){
         double price;
         return groceryRepository.findByPriceLessThanEqual(quantity);
+    }
+    //filter by category
+    public List<GroceryItem> filterByCategory(String category){
+        return groceryRepository.findByCategoryIgnoreCase(category);
     }
 }
