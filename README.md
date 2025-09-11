@@ -148,6 +148,7 @@ GET /api/grocery/filter
 | minPrice | ?minPrice=20 | Minimum price filter |
 | maxPrice | ?maxPrice=50 | Maximum price filter |
 | minQuantity | ?minQuantity=10 | Minimum quantity filter |
+| category | ?category=Fruits | Filter by Category of items |
 
 **Example Request:**
 ```
